@@ -17,6 +17,12 @@
                 <a href="https://github.com/gurusabarish/hugo-profile" target="_blank">Hugo Profile</a> using
                 <a href="https://gohugo.io" target="_blank">Hugo</a>
             </div>
+            {{ if eq hugo.Environment "development" }}
+              <div>
+                {{ $prodUri := printf "%s%s" .Site.Params.deploymentUri .Page.RelPermalink }}
+                <a href="{{$prodUri}}" target="blank"><strong>{{$prodUri}}</strong></a>
+              </div>
+            {{ end }}
         </div>
     </div>
 </div>
